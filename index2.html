@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    #man{
+      width: 500px;
+      height: 100px;
+      background-color: gray;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="man">
+      <div class="ra" data-smc="1">menu-1</div>
+      <div class="ra" data-smc="2">menu-2</div>
+      <div class="ra" data-smc="3">menu-3</div>
+      <div class="ra" data-smc="4">menu-4</div>
+    </div>
+  </div>
+
+  <script>
+    const ra = document.getElementsByClassName('ra');
+    //console.dir(ra[0])
+    const ra1 = ra[0]
+    //console.log(ra1)
+    let real = true
+    ra1.addEventListener('click',function(){
+      //console.log('hello')
+      for(let i = 0 ; i < ra.length; i++){
+        ra[i].style.color = 'gray';
+        
+        if(ra[i].dataset.smc==="1"){
+          ra[i].style.color = 'black';
+          
+        }
+        
+      }
+    });
+
+  
+
+
+  </script>
+</body>
+</html>

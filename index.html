@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #root>div{
+      width: 400px;
+      height: 600px;
+    }
+
+    .left{
+      position: absolute;
+      top:170px;
+      left: 550px;
+      z-index: 3;
+      border: 5px solid gray;
+    }
+
+    .shadow{
+      z-index: 2;
+      background-color: rgba(0, 225, 255, 0.192);
+    }
+
+    .left>div{
+      width: inherit;
+      height: 300px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left>:nth-child(1){
+      background-color: lightgoldenrodyellow;
+    }
+
+    .left>:nth-child(2){
+      background-color: lightsalmon;
+    }
+
+    .left>div:nth-child(1)>div:nth-child(1){
+      width: 320px;
+      font-size: 50px;
+      border-bottom: 1px solid black;
+      font-weight: bold;
+      margin-left: 10px;
+
+    }
+
+    .left>div:nth-child(1)>div:nth-child(2){
+      width: 170px;
+      font-size: 50px;
+      border-bottom: 1px solid black;
+      font-weight: bold;
+      margin-left: 10px;
+
+    }
+
+    
+
+    .left>div:nth-child(2){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left>div:nth-child(2)>div{
+      width: 300px;
+      height: 300px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #btn{
+      width:200px;
+      height: 40px;
+      background-color: yellow;
+      border-radius: 40px;
+      font-weight: bold;
+      color: brown;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position:relative;
+      top:85px;
+      left:170px;
+      border: 2px solid black;
+    }
+
+    .right{
+      position: relative;
+      top:70px;
+      right:140px;
+      z-index: 1;
+      background-color: #ccc;
+    }
+
+    .right>div{
+      width: inherit;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right>div:nth-child(1)>div:nth-child(1){
+      font-size: 65px;
+      color: gray;
+    }
+
+    .right>div:nth-child(1)>div:nth-child(2){
+      position: relative;
+      top: 60px;
+      left: 120px;
+      color: gray;
+
+    }
+    
+
+    .right>div:nth-child(2){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right>div:nth-child(2)>div{
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="left">
+      <div>
+        <div>BORDERLINE</div>
+        <div>DISIGN</div>
+        <div id="btn">goooood?</div>
+      </div>
+      <div>
+        <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quidem quisquam esse nostrum, cum eveniet? Ipsam odit rem ipsum a ad aut quisquam labore illo aliquid provident, tenetur totam Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti labore repudiandae quod commodi</div>
+      </div>
+    </div>
+    <div class="shadow"></div>
+    <div class="right">
+      <div>
+        <div>BORDERLINE<br>DESIGN</div>
+        <div>goooood?</div>
+      </div>
+      <div>
+        <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quidem quisquam esse nostrum, cum eveniet? Ipsam odit rem ipsum a ad aut quisquam labore illo aliquid provident, tenetur totam Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti labore repudiandae quod commodi</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const left = document.querySelector('.left')
+    //console.log(left)
+    const btn = document.getElementById('btn')
+    //console.log(btn)
+    let real = true
+    const newDiv = document.createElement('div');
+       console.log(newDiv)
+
+    btn.addEventListener('click',function(){
+      if(real === true){
+        const newDiv = document.createElement('div');
+         btn.appendChild(newDiv);
+        newDiv.style.backgroundColor = "black"
+        newDiv.style.opacity = "0.5"
+        newDiv.textContent = '암 베리베리 굿~~'
+        newDiv.style.width = "500px"
+        newDiv.style.height = "100px"
+        newDiv.style.color = "white"
+        newDiv.style.display = "flex"
+        newDiv.style.justifyContent = "center"
+        newDiv.style.alignItems = "center"
+        real = false
+       console.log(newDiv)
+      }else{
+       btn.removeChild('div');
+       console.log(newDiv)
+        real = true
+      }//다시사라지졋다가 생성됫다가 하는것을 해결하지못했습니다
+    });
+
+  </script>
+</body>
+</html>
